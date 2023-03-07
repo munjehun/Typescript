@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "noImplicitAny": false
+    //컴파일러 옵션 설정
+    "allowJs": true, //해당 프로젝트안에 자바스크립트 파일을 허용
+    "checkJs": true, //자바스크립트 파일에서 타입을 체크
+    "noImplicitAny": true //변수의 기본 타입을 설정해 주지 않으면 any로 설정
   },
   "include": ["./src/**/*"]
 }
