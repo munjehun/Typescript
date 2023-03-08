@@ -1,3 +1,4 @@
+// 유니온 타입(|) : 하나 이상의 타입을 지정
 function logMessage(value: string | number) {
   if (typeof value === "number") {
     value.toString();
@@ -20,8 +21,14 @@ interface Person {
   age: number;
 }
 
-function askSomeone(someone: Developer | Person) {
-  someone.name;
-  // someone.skill; ❌
-  // someone.age; ❌
-}
+// function askSomeone(someone: Developer | Person) {
+//   someone.name;
+//   // someone.skill; ❌
+//   // someone.age; ❌
+// }
+
+// 인터섹션 타입(&)
+function askSomeone(someone: Developer & Person) {}
+// askSomeone({ name: "에비", skill: "살찌기" }); ❌
+// askSomeone({ name: "에비", age: 16 }); ❌
+askSomeone({ name: "에비", skill: "살찌기", age: 16 });
