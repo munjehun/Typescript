@@ -41,14 +41,22 @@ const obj2: Dropdown<string> = { value: "abc", selected: true };
 // }
 // logTextLength("hello");
 
+// function logTextLength<T>(text: T[]): T[] {
+//   //호출되기 전에 타입을 제한해서 내부 함수에 에러를 없앨 수 있다.
+//   console.log(text.length);
+//   return text;
+// }
+// logTextLength<string>(["hello"]);
+
 // - 제네릭의 타입 제한 2 - 정의된 타입 이용하기
 interface LengthType {
   length: number;
 }
 function logTextLength<T extends LengthType>(text: T): T {
-  text.length; //❌ 호출하기 전에는 어떤 타입인지 지정되지 않아서 에러!
+  text.length;
   return text;
 }
+logTextLength("a");
 
 // - 제네릭의 타입 제한 3 - keyof
 interface ShoppingItem {
@@ -61,3 +69,5 @@ function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
   return itemOption;
 }
 getShoppingItemOption("name"); //⭕️
+getShoppingItemOption("price"); //⭕️
+getShoppingItemOption("stock"); //⭕️
